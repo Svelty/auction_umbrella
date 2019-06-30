@@ -26,9 +26,11 @@
       <%= if @current_user do %>
         Logged in as <%= link @current_user.username, to: Routes.user_path(@conn, :show, @current_user) %>
         |
-        <% link "Log out", to: Routes.session_path(@conn, :delete), method: :delete %>
+        <%= link "Log out", to: Routes.session_path(@conn, :delete), method: :delete %>
       <% else %>
         <%= link "login", to: Routes.session_path(@conn, :new) %>
+        |
+        <%= link "register", to: Routes.user_path(@conn, :new) %>
       <% end %>
     </div>
 
